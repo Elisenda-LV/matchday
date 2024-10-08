@@ -1,0 +1,10 @@
+<div *ngIf="leagues.length > 0; else noResults">
+  <ul>
+    <li *ngFor="let league of leagues">
+      <!-- {{ league.name }} -->
+    </li>
+  </ul>
+</div>
+<ng-template #noResults>
+  <p>No se encontraron ligas.</p>
+</ng-template>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { League } from '../../../models/league.interface';
 
@@ -11,6 +11,7 @@ import { League } from '../../../models/league.interface';
 })
 export class SearchLeaguesComponent {
 
+  @Output() searchResults = new EventEmitter<League[]>();
   public leagues: League[] = [];
   public foundLeague: League | null = null;
 
@@ -18,20 +19,22 @@ export class SearchLeaguesComponent {
     search : new FormControl('', [Validators.required, Validators.maxLength(20),])
   })
 
-  searchLeaguebyName() {
-    let searchLeague = this.searchForm.get('search')!.value?.toLowerCase() || '';
+ searchLeaguebyName() {
+  let searchLeague = this.searchForm.get('search')!.value?.toLowerCase() || '';
 
-    if (searchLeague.trim() !== '') {
-      this.foundLeague = this.leagues.find(league =>
-        league.league_name.toLowerCase().includes(searchLeague)
-      )?? null;
+  if (searchLeague.trim() !== '') {
+    const results = this.leagues.filter(league =>
+      league.league_name.toLowerCase().includes(searchLeague)
+    );
 
-      if (!this.foundLeague) {
-        console.log('This league not exist')
-      }
-    } else {
-      this.foundLeague = null;
+    if (results.length === 0) {
+      console.log('This league does not exist');
     }
+
+    this.searchResults.emit(results);
+  } else {
+    this.searchResults.emit([]);
   }
+}
 
 }
