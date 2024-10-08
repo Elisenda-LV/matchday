@@ -1,0 +1,40 @@
+<form [formGroup]="filtersForm" class="d-flex">
+  <li class="nav-item p-2">
+    <select class="form-select" formControlName="sport">
+      <option value="">Sport</option>
+      <option value="f7">F7</option>
+      <option value="f11">F11</option>
+      <option value="basket">Basket</option>
+    </select>
+   </li>
+
+   <!------- gender ------>
+  <li class="nav-item p-2">
+    <select  class="form-select" formControlName="gender">
+      <option value="">Gender</option>
+      <option value="women">Women</option>
+      <option value="men">Men</option>
+      <option value="mixed">Mixed</option>
+    </select>
+  </li>
+   <!------- category ------>
+  <li class="nav-item p-2">
+    <select class="form-select" formControlName="category">
+      <option value="">Category</option>
+      <option value="+18">+18</option>
+      <option value="+25">+25</option>
+      <option value="+30">+30</option>
+      <option value="+45">+45</option>
+    </select>
+  </li>
+
+  @if( filtersForm.touched ){
+    <li class="nav-item p-2">
+      <button class="btn btn-outline-danger" (click)="resetFilters()" >Delete</button>
+    </li>
+  }
+
+  <li class="nav-item p-2 pe-5">
+    <button class="btn btn-dark" type="submit" (click)="applyFilters()">Filter</button>
+  </li>
+</form>
