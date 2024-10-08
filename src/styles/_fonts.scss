@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+%font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, div, li, button, select, option {
+    @extend %font-montserrat;
+}
+
+.secondary-text{
+  color: #8e8a8a;
+  font-family: 'Inter', sans-serif;
+
+}
