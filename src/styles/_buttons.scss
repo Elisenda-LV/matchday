@@ -1,9 +1,14 @@
 .btn{
   border-radius: 50pt;
-  font-size: 10pt;
+  font-size: 12pt;
+  font-family: 'Inter', sans-serif;
 }
 
 .router-link-active {
   font-weight: bold;
   border-bottom: 2px solid #000;
+}
+
+.lead{
+  font-size: 14pt;
 }
