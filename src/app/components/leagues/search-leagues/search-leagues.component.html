@@ -1,0 +1,5 @@
+<form [formGroup]="searchForm" class="d-flex">
+  <input type="text" class="form-control" formControlName="search" placeholder="League name...">
+  <button (click)="searchLeaguebyName()" class="btn btn-outline-white ms-3" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>
+
