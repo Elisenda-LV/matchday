@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { League } from '../../../models/league.interface';
 
@@ -11,16 +11,20 @@ import { League } from '../../../models/league.interface';
 })
 export class FilterLeaguesComponent {
 
+  @Output() filterResults = new EventEmitter<League[]>();
   public filteredLeagues: League[] = [];
   public leagues: League[] = [];
 
+  filtersForm: FormGroup = new FormGroup({});
 
-  filtersForm = new FormGroup({
-    gender : new FormControl(''),
-    sport : new FormControl(''),
-    category : new FormControl(''),
+  ngOnInit() {
+    this.filtersForm = new FormGroup({
+      gender: new FormControl(''),
+      sport: new FormControl(''),
+      category: new FormControl(''),
+    });
+  }
 
-  })
 
   public applyFilters(){
     // Get the selected values from the form
@@ -36,8 +40,8 @@ export class FilterLeaguesComponent {
         (categoryFilter === '' || league.category === categoryFilter)
       );
     });
+    this.filterResults.emit(this.filteredLeagues);
 
-    console.log(this.filteredLeagues)
   }
 
 

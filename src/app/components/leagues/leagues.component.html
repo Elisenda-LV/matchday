@@ -1,3 +1,7 @@
-<app-add-league-button></app-add-league-button>
-<app-search-leagues></app-search-leagues>
-<app-filter-leagues></app-filter-leagues>
+
+<app-search-leagues (searchResults)="onSearchResults($event)"></app-search-leagues>
+<app-filter-leagues (filterResults)="onFilterResults($event)"></app-filter-leagues>
+
+<div class="leagues-results">
+  <app-leagues-list [leagues]="leagues"></app-leagues-list>
+</div>
