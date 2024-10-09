@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { League } from '../../../models/league.interface';
+import { LeaguesService } from '../../../services/leagues.service';
 
 @Component({
   selector: 'app-leagues-list',
@@ -13,6 +14,13 @@ export class LeaguesListComponent {
 
   @Input() leagues: League[] = [];
 
+  leaguesService = inject(LeaguesService);
+
+  ngOnInit(): void {
+    this.leaguesService.getListLeagues().subscribe((leagues) => {
+      this.leagues = leagues;
+    });
+  }
 
 
 }
