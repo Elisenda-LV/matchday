@@ -7,6 +7,7 @@ import { AddLeagueButtonComponent } from './add-league-button/add-league-button.
 import { SearchLeaguesComponent } from './search-leagues/search-leagues.component';
 import { FilterLeaguesComponent } from './filter-leagues/filter-leagues.component';
 import { LeaguesListComponent } from './leagues-list/leagues-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,6 +16,7 @@ import { LeaguesListComponent } from './leagues-list/leagues-list.component';
   standalone: true,
   imports: [
     CommonModule,
+    HttpClientModule,
     AddLeagueButtonComponent,
     SearchLeaguesComponent,
     FilterLeaguesComponent,
@@ -23,15 +25,11 @@ import { LeaguesListComponent } from './leagues-list/leagues-list.component';
   templateUrl: './leagues.component.html',
   styleUrl: './leagues.component.scss'
 })
-export class LeaguesComponent implements OnInit {
+export class LeaguesComponent  {
 
-  //TODO: es esto necesario???
   leaguesService = inject(LeaguesService);
   router = inject(Router);
-
   leagues: League[] = [];
-
-  ngOnInit(): void {}
 
   onSearchResults(results: League[]) {
     this.leagues = results;
