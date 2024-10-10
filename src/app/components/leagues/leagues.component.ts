@@ -27,19 +27,19 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LeaguesComponent  {
 
-  leaguesService = inject(LeaguesService);
-  router = inject(Router);
-  leagues: League[] = [];
+  public leaguesService = inject(LeaguesService);
+  public router = inject(Router);
 
-  onSearchResults(results: League[]) {
-    this.leagues = results;
+  public leagues: League[] = [];
+
+  onFilterResults(filteredLeagues: League[]) {
+    this.leagues = filteredLeagues;
   }
 
-  onFilterResults(results: League[]) {
-    this.leagues = results;
+  onSearchResults(searchResults: League[]) {
+    this.leagues = searchResults;
   }
 
-  //To show league manager
 
 
 }

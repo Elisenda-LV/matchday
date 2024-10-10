@@ -1,10 +1,25 @@
-<div class="container">
-  <ul class="nav">
-    <li class="nav-item ps-5 p-2"><app-search-leagues (searchResults)="onSearchResults($event)"></app-search-leagues></li>
-    <li class="nav-item ps-5 p-2"><app-filter-leagues (filterResults)="onFilterResults($event)"></app-filter-leagues></li>
-  </ul>
-</div>
+<div class="container p-5 mt-5">
+  <div class="row text-end pt-3 pb-5">
+    <div class="col">
+      <app-add-league-button></app-add-league-button>
+    </div>
+  </div>
+  <div class="row">
+    <ul class="nav justify-content-center">
+      <li class="nav-item p-2">
+        <app-search-leagues (searchResults)="onSearchResults($event)"></app-search-leagues>
+      </li>
+      <li class="nav-item p-2">
+        <app-filter-leagues (filterResults)="onFilterResults($event)"></app-filter-leagues>
+      </li>
 
-<div class="leagues-results">
-  <app-leagues-list [leagues]="leagues"></app-leagues-list>
+    </ul>
+  </div>
+  <div class="row py-5">
+    <div class="col">
+      <div class="leagues-results">
+        <app-leagues-list [leagues]="leagues"></app-leagues-list>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,25 @@
+.search-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  width: 400px;
+  padding-left: 35px; /* Espacio para el ícono */
+}
+
+.search-container .fa-magnifying-glass {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Para que el ícono no interfiera con la entrada de texto */
+}
+
+i{
+  color:gray;
+}
+
+
