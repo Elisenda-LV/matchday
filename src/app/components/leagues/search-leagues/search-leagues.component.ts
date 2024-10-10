@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { League } from '../../../models/league.interface';
+import { LeaguesService } from '../../../services/leagues.service';
 
 @Component({
   selector: 'app-search-leagues',
@@ -13,28 +14,40 @@ export class SearchLeaguesComponent {
 
   @Output() searchResults = new EventEmitter<League[]>();
   public leagues: League[] = [];
-  public foundLeague: League | null = null;
+  public leaguesService = inject(LeaguesService);
 
   searchForm = new FormGroup({
     search : new FormControl('', [Validators.required, Validators.maxLength(20),])
   })
 
- searchLeaguebyName() {
-  let searchLeague = this.searchForm.get('search')!.value?.toLowerCase() || '';
+  ngOnInit(): void {
+    this.leaguesService.getListLeagues().subscribe((leagues) => {
+      this.leagues = leagues;
+    });
+  }
 
-  if (searchLeague.trim() !== '') {
-    const results = this.leagues.filter(league =>
-      league.league_name.toLowerCase().includes(searchLeague)
-    );
-
-    if (results.length === 0) {
-      console.log('This league does not exist');
+  searchLeaguebyName(): void {
+    if (this.searchForm.invalid) {
+      this.searchResults.emit([]);
+      return;
     }
 
-    this.searchResults.emit(results);
-  } else {
-    this.searchResults.emit([]);
+    const searchLeague = this.searchForm.get('search')!.value?.toLowerCase().trim() || '';
+
+    if (searchLeague !== '') {
+      const results = this.leagues.filter(league =>
+        league.league_name.toLowerCase().includes(searchLeague)
+      );
+      console.log(results);
+
+      if (results.length === 0) {
+        console.log('This league does not exist');
+      }
+
+      this.searchResults.emit(results);
+    } else {
+      this.searchResults.emit([]);
+    }
   }
-}
 
 }
