@@ -7,7 +7,7 @@
 
 .search-container input {
   width: 400px;
-  padding-left: 35px; /* Espacio para el ícono */
+  padding-left: 40px; /* Espacio para el ícono */
 }
 
 .search-container .fa-magnifying-glass {
@@ -16,6 +16,14 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none; /* Para que el ícono no interfiera con la entrada de texto */
+}
+
+.search-container .fa-xmark {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer; /* Para que el ícono sea clicable */
 }
 
 i{
