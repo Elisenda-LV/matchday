@@ -50,4 +50,8 @@ export class SearchLeaguesComponent {
     }
   }
 
+  public reset(){
+    window.location.reload();
+  }
+
 }

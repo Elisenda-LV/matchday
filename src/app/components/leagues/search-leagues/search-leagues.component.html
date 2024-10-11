@@ -1,7 +1,7 @@
 <form [formGroup]="searchForm" class="d-flex p-2">
   <div class="search-container">
     <input type="text" class="form-control" formControlName="search" placeholder="League name" (input)="searchLeaguebyName()">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass"></i><i class="fa-solid fa-xmark" (click)="reset()"></i>
   </div>
 </form>
 
