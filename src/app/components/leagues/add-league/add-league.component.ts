@@ -58,7 +58,6 @@ export class AddLeagueComponent {
             this.activeModal.close(createdLeague);
             window.location.reload();
             console.log(createdLeague);
-            this.router.navigate(['/league-manager', createdLeague.id_league]);
 
           },
           error: (err) => console.log(err)

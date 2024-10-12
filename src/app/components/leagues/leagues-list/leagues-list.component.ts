@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { League } from '../../../models/league.interface';
 import { LeaguesService } from '../../../services/leagues.service';
 import { FilterLeaguesComponent } from '../filter-leagues/filter-leagues.component';
-import { Router } from 'express';
+
 
 @Component({
   selector: 'app-leagues-list',
@@ -20,7 +20,6 @@ export class LeaguesListComponent {
   @Input() leagues: League[] = [];
 
   leaguesService = inject(LeaguesService);
-  router = inject(Router);
 
   ngOnInit(): void {
     this.leaguesService.getListLeagues().subscribe((leagues) => {
