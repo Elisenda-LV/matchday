@@ -18,7 +18,6 @@ export class LeaguesService {
 
   getListLeagues(): Observable<League[]>{
     return this.httpClient.get<League[]>(`${API_URL}leagues`)
-
   }
 
   getLeagueById(id: string): Observable<League>{

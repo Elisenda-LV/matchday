@@ -9,11 +9,15 @@
               <h3 class="">{{ league.league_name }}</h3>
           </div>
           <ul class="list-unstyled mb-4">
-              <li class="mb-2 text-secondary"><strong>{{ league.location }}</strong></li>
-              <li class="mb-2"> {{ league.sport.toUpperCase() }} {{ league.gender }} {{ league.category }} </li>
+              <li class="mb-4">{{ league.location }}</li>
+              <li class="mb-3">
+                <span class="border p-2 me-2">{{ league.sport.toUpperCase() }}</span>
+                <span class="border p-2 me-2">{{ league.gender }}</span>
+                <span class="border p-2">{{ league.category }}</span>
+              </li>
               <li class="mb-2 text-secondary"><p>{{ league.description }}</p></li>
           </ul>
-          <div class="d-grid"><a class="btn btn-primary mb-2" >League Manager</a></div>
+          <div class="d-grid"><a class="btn btn-primary mb-2" (click)="viewLeague(league.id_league)" >League Manager</a></div>
       </div>
     </div>
   </div>
