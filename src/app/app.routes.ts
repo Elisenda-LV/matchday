@@ -15,6 +15,18 @@ export const routes: Routes = [
 
   },
   {
+    path: 'leagues/:id',
+    title: 'matchday - Leagues',
+    loadComponent: () => import('./components/league-manager/league-manager.component').then(c => c.LeagueManagerComponent),
+
+  },
+  {
+    path: 'leagues/:id/calendar',
+    title: 'matchday - Leagues',
+    loadComponent: () => import('./components/league-manager/league-calendar/league-calendar.component').then(c => c.LeagueCalendarComponent),
+
+  },
+  {
     path: '**',
     title: 'something went wrong',
     loadComponent: () => import('./pages/error/error.component').then(c => c.ErrorComponent),

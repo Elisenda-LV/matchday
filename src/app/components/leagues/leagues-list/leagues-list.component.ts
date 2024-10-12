@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { League } from '../../../models/league.interface';
 import { LeaguesService } from '../../../services/leagues.service';
 import { FilterLeaguesComponent } from '../filter-leagues/filter-leagues.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class LeaguesListComponent {
   @Input() leagues: League[] = [];
 
   leaguesService = inject(LeaguesService);
+  router = inject(Router);
 
   ngOnInit(): void {
     this.leaguesService.getListLeagues().subscribe((leagues) => {
@@ -27,6 +29,13 @@ export class LeaguesListComponent {
     });
   }
 
+  public viewLeague(id: string) {
+    if(id){
+      this.router.navigate(['/leagues', id]);
+    }else{
+      console.error('Id undefined o null');
+    }
+  }
 
 
 

@@ -8,6 +8,7 @@ export interface League {
   category: string,
   description: string,
   location: string,
-  create_at: Date,
+  created_at: Date,
+  updated_at: Date,
 
 }

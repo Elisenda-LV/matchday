@@ -48,7 +48,8 @@ export class AddLeagueComponent {
         category: formValues.category!,
         description: formValues.description!,
         location: formValues.location!,
-        create_at: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
 
       }
 
