@@ -1,7 +1,7 @@
 <form [formGroup]="filtersForm" class="d-flex">
  <ul class="nav justify-content-start">
   <li class="nav-item p-2">
-    <select class="form-select" formControlName="sport" (change)="applyFilters()">
+    <select class="form-select bg-light" formControlName="sport" (change)="applyFilters()">
       <option value="">Sport</option>
       <option value="F5">F5</option>
       <option value="F7">F7</option>
@@ -13,7 +13,7 @@
 
    <!------- gender ------>
   <li class="nav-item p-2">
-    <select  class="form-select" formControlName="gender" (change)="applyFilters()">
+    <select  class="form-select bg-light" formControlName="gender" (change)="applyFilters()">
       <option value="">Gender</option>
       <option value="women">Women</option>
       <option value="men">Men</option>
@@ -22,7 +22,7 @@
   </li>
    <!------- category ------>
   <li class="nav-item p-2">
-    <select class="form-select" formControlName="category" (change)="applyFilters()">
+    <select class="form-select bg-light" formControlName="category" (change)="applyFilters()">
       <option value="">Category</option>
       <option value="+18">+18</option>
       <option value="+25">+25</option>
@@ -33,7 +33,7 @@
 
   <!------- reset ------>
   <li class="nav-item p-2">
-    <button class="btn btn-outline-light" (click)="reset()"><i class="fa-solid fa-trash" style="color: #6d6969;"></i></button>
+    <button class="btn btn-outline-light bg-light" (click)="reset()"><i class="fa-solid fa-trash" style="color: #6d6969;"></i></button>
   </li>
 
 </ul>
