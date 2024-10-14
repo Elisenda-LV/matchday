@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { LeagueCalendarComponent } from './components/league-manager/league-calendar/league-calendar.component';
 
 export const routes: Routes = [
 
@@ -18,14 +19,22 @@ export const routes: Routes = [
     path: 'leagues/:id',
     title: 'matchday - Leagues',
     loadComponent: () => import('./components/league-manager/league-manager.component').then(c => c.LeagueManagerComponent),
-
+      children: [
+        { 
+          path: 'calendar', 
+          loadComponent: () => import('./components/league-manager/league-calendar/league-calendar.component').then(c => c.LeagueCalendarComponent) 
+          },
+        { 
+          path: 'teams', 
+          loadComponent: () => import('./components/league-manager/league-teams/league-teams.component').then(c => c.LeagueTeamsComponent) 
+        },
+        { 
+          path: 'info', 
+          loadComponent: () => import('./components/league-manager/league-info/league-info.component').then(c => c.LeagueInfoComponent) 
+        },
+      ], 
   },
-  {
-    path: 'leagues/:id/calendar',
-    title: 'matchday - Leagues',
-    loadComponent: () => import('./components/league-manager/league-calendar/league-calendar.component').then(c => c.LeagueCalendarComponent),
 
-  },
   {
     path: '**',
     title: 'something went wrong',

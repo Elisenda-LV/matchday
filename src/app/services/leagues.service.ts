@@ -32,6 +32,10 @@ export class LeaguesService {
     return this.httpClient.put<League>(`${API_URL}leagues/${league.id_league}`, league)
   }
 
+  deleteLeague(id: string): Observable<League>{
+    return this.httpClient.delete<League>(`${API_URL}leagues/${id}`)
+  }
+
 
 
 

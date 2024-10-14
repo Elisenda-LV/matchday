@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthComponent } from './auth.component';
+import { LeagueTeamsComponent } from './league-teams.component';
 
-describe('AuthComponent', () => {
-  let component: AuthComponent;
-  let fixture: ComponentFixture<AuthComponent>;
+describe('LeagueTeamsComponent', () => {
+  let component: LeagueTeamsComponent;
+  let fixture: ComponentFixture<LeagueTeamsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthComponent]
+      imports: [LeagueTeamsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AuthComponent);
+    fixture = TestBed.createComponent(LeagueTeamsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
