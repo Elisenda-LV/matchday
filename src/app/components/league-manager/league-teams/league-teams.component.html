@@ -1,0 +1,6 @@
+<div *ngIf="leagueTeams">
+  <h2>Teams in League</h2>
+  <ul>
+    <li *ngFor="let team of leagueTeams">{{ team.team_id }}</li>
+  </ul>
+</div>

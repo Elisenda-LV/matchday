@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-league-calendar',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './league-calendar.component.scss'
 })
 export class LeagueCalendarComponent {
-
+  @Input() leagueId: string = '';
 }

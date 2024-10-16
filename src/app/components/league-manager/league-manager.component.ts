@@ -6,6 +6,8 @@ import { League } from '../../models/league.interface';
 import { DeleteLeagueButtonComponent } from './delete-league-button/delete-league-button.component';
 import { EditLeagueButtonComponent } from './edit-league-button/edit-league-button.component';
 import { ManagerNavbarComponent } from './manager-navbar/manager-navbar.component';
+import { LeagueCalendarComponent } from "./league-calendar/league-calendar.component";
+import { LeagueInfoComponent } from './league-info/league-info.component';
 
 @Component({
   selector: 'app-league-manager',
@@ -15,8 +17,10 @@ import { ManagerNavbarComponent } from './manager-navbar/manager-navbar.componen
     RouterModule,
     DeleteLeagueButtonComponent,
     EditLeagueButtonComponent,
-    ManagerNavbarComponent
-  ],
+    ManagerNavbarComponent,
+    LeagueCalendarComponent,
+    LeagueInfoComponent
+],
   templateUrl: './league-manager.component.html',
   styleUrl: './league-manager.component.scss'
 })
@@ -26,7 +30,7 @@ export class LeagueManagerComponent implements OnInit {
   leagueService = inject(LeaguesService);
   leagueId: string = '';
 
-  @Input() leagueCard : League = {
+  leagueCard : League = {
     id_league: '',
     user_id:'',
     league_name: '',
@@ -42,9 +46,10 @@ export class LeagueManagerComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
     this.leagueId = params.get('id')!;
+    if (this.leagueId) {
+      this.getLeagueId(this.leagueId);
+    }
     });
-
-    this.getLeagueId(this.leagueId);
   }
 
   private getLeagueId(id: string) {
