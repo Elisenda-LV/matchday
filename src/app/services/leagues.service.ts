@@ -3,6 +3,7 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { League } from './../models/league.interface';
 import { Observable } from 'rxjs';
+import { LeagueTeams } from '../models/league-teams.interface';
 
 
 const API_URL = environment.endpoint;
@@ -34,6 +35,10 @@ export class LeaguesService {
 
   deleteLeague(id: string): Observable<League>{
     return this.httpClient.delete<League>(`${API_URL}leagues/${id}`)
+  }
+
+  getTeamsByLeague(id: string): Observable<LeagueTeams[]>{
+    return this.httpClient.get<LeagueTeams[]>(`${API_URL}leagues/${id}/teams`)
   }
 
 
